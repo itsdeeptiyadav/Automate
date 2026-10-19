@@ -1,0 +1,27 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Secrets / local config
+.env
+backend/.env
+frontend/.env
+
+# Local database
+backend/data/*.db
+backend/data/*.db-wal
+backend/data/*.db-shm
+backend/data/documents/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,123 @@
+TaskPilot v2 test results (generated 2026-10-18 in the build environment: Linux, Python 3.12.3, Node v22.22.2)
+
+## Backend: pytest -v
+tests/test_agent_flow.py::test_invoice_workflow_end_to_end PASSED
+tests/test_agent_flow.py::test_write_requires_approval_and_nothing_is_written_before_it PASSED
+tests/test_agent_flow.py::test_duplicate_processing_creates_no_second_record PASSED
+tests/test_agent_flow.py::test_missing_invoice_is_not_reported_as_success PASSED
+tests/test_agent_flow.py::test_wrong_amount_is_rejected_before_any_approval_or_write PASSED
+tests/test_agent_flow.py::test_agent_that_picks_the_wrong_invoice_cannot_complete PASSED
+tests/test_agent_flow.py::test_llm_claiming_success_without_work_is_rejected PASSED
+tests/test_agent_flow.py::test_unknown_tool_request_is_rejected_and_run_continues PASSED
+tests/test_agent_flow.py::test_path_traversal_attempt_by_agent_is_blocked PASSED
+tests/test_agent_flow.py::test_transient_read_failure_is_retried PASSED
+tests/test_agent_flow.py::test_write_timeout_checks_database_before_retry_and_never_duplicates PASSED
+tests/test_agent_flow.py::test_llm_unavailable_is_reported_honestly PASSED
+tests/test_agent_flow.py::test_invalid_llm_output_fails_instead_of_guessing PASSED
+tests/test_agent_flow.py::test_plan_with_invented_company_is_refused PASSED
+tests/test_agent_flow.py::test_step_limit_stops_the_agent PASSED
+tests/test_agent_flow.py::test_missing_company_asks_for_input_then_resumes PASSED
+tests/test_agent_flow.py::test_unsupported_task_fails_cleanly PASSED
+tests/test_agent_flow.py::test_cancel_while_awaiting_approval PASSED
+tests/test_agent_flow.py::test_file_search_workflow PASSED
+tests/test_agent_flow.py::test_file_search_with_wrong_claimed_files_fails_verification PASSED
+tests/test_agent_flow.py::test_injected_text_does_not_change_workspace PASSED
+tests/test_api.py::test_health_reports_provider_and_demo_label PASSED
+tests/test_api.py::test_task_crud_and_status_codes PASSED
+tests/test_api.py::test_invoice_endpoints_show_real_rows PASSED
+tests/test_api.py::test_events_after_cursor PASSED
+tests/test_chat.py::test_chat_answers_from_uploaded_documents_and_shows_the_tool_trace PASSED
+tests/test_chat.py::test_conversation_history_is_persisted_and_ordered PASSED
+tests/test_chat.py::test_chat_can_start_a_task_but_cannot_approve_or_write PASSED
+tests/test_chat.py::test_chat_tools_are_read_only_plus_task_control PASSED
+tests/test_chat.py::test_invoice_questions_read_the_internal_system PASSED
+tests/test_chat.py::test_unmatched_question_gets_a_plain_reply_without_tools PASSED
+tests/test_chat.py::test_task_limit_per_message PASSED
+tests/test_chat.py::test_native_tool_calling_through_chat_ollama PASSED
+tests/test_chat.py::test_json_tool_calling_fallback PASSED
+tests/test_chat.py::test_unknown_tool_and_bad_arguments_go_back_to_the_model PASSED
+tests/test_chat.py::test_tool_loop_is_capped PASSED
+tests/test_chat.py::test_llm_failure_is_a_503_and_nothing_is_saved PASSED
+tests/test_chat.py::test_model_without_tool_support_gets_an_actionable_message PASSED
+tests/test_chat.py::test_missing_conversation_and_empty_message PASSED
+tests/test_chat.py::test_provider_without_chat_model_reports_unavailable PASSED
+tests/test_document_qa.py::test_answer_with_verified_citation_completes PASSED
+tests/test_document_qa.py::test_fabricated_quote_fails_verification PASSED
+tests/test_document_qa.py::test_citing_a_document_the_agent_never_saw_fails PASSED
+tests/test_document_qa.py::test_claim_without_citations_fails PASSED
+tests/test_document_qa.py::test_nothing_relevant_is_reported_not_invented PASSED
+tests/test_document_qa.py::test_empty_library_fails_honestly PASSED
+tests/test_document_qa.py::test_instruction_inside_a_document_is_flagged_as_untrusted PASSED
+tests/test_documents.py::test_every_supported_type_is_extracted_and_listed[policy.txt-Refund policy\n\nCustomers may return unused products within 30 days of delivery for a full refund. Refunds are issued to the original payment method within 5 business days.\n\nShipping\n\nStandard shipping takes 3 to 5 business days. Express shipping is available for an extra fee.\n\nWarranty\n\nAll devices carry a two year limited warranty covering manufacturing defects.] PASSED
+tests/test_documents.py::test_every_supported_type_is_extracted_and_listed[policy.md-# Policy\n\nRefund policy\n\nCustomers may return unused products within 30 days of delivery for a full refund. Refunds are issued to the original payment method within 5 business days.\n\nShipping\n\nStandard shipping takes 3 to 5 business days. Express shipping is available for an extra fee.\n\nWarranty\n\nAll devices carry a two year limited warranty covering manufacturing defects.] PASSED
+tests/test_documents.py::test_every_supported_type_is_extracted_and_listed[policy.csv-topic,rule\nrefund,30 days\nshipping,3 to 5 business days\n] PASSED
+tests/test_documents.py::test_every_supported_type_is_extracted_and_listed[policy.pdf-%PDF-1.3\n%\x93\x8c\x8b\x9e ReportLab Generated PDF document http://www.reportlab.com\n1 0 obj\n<<\n/F1 2 0 R\n>>\nendobj\n2 0 obj\n<<\n/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font\n>>\nendobj\n3 0 obj\n<<\n/Contents 7 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 6 0 R /Resources <<\n/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]\n>> /Rotate 0 /Trans <<\n\n>> \n  /Type /Page\n>>\nendobj\n4 0 obj\n<<\n/PageMode /UseNone /Pages 6 0 R /Type /Catalog\n>>\nendobj\n5 0 obj\n<<\n/Author (anonymous) /CreationDate (D:20261018124120+00'00') /Creator (ReportLab PDF Library - www.reportlab.com) /Keywords () /ModDate (D:20261018124120+00'00') /Producer (ReportLab PDF Library - www.reportlab.com) \n  /Subject (unspecified) /Title (untitled) /Trapped /False\n>>\nendobj\n6 0 obj\n<<\n/Count 1 /Kids [ 3 0 R ] /Type /Pages\n>>\nendobj\n7 0 obj\n<<\n/Filter [ /ASCII85Decode /FlateDecode ] /Length 400\n>>\nstream\nGaro>?VeQ^'ZJu(.F+^b:tr,<qPn-kq4o9"ZZ:%6Kn_hHqX(-H@SE#JOBf<n3/9kT16$%?],l3-\::YXXhc9_\u<GOY\1#D?<pe$&oCd'osf8n)3)F>[Hbb9YYVL8^YQN1T"=sZCYG3K'Rd2K3KKbmE"o$&LaIF?G\9J3K#_#JUGCJd&:F,S&q[JOOW,IG",Dh=Vo+^s!fK#KmKgu489od@F^F"'R0C;FeM&ECOb^$]4J]%p8DlsV-fD0b"TCh2)[)'N%acdohTtm&ln=!\Wh3mgbac2kr1IbDCd=?FP&[3?X/p$iXKlFs>JGIHc>aNg+ZA(%&#koan;ps`cq/B%;O;oDMBn]D7cFn]odZaoce"Z5fp(9&X61g%hPJ;k8s#h_p2<#pI04&-]#=~>endstream\nendobj\nxref\n0 8\n0000000000 65535 f \n0000000073 00000 n \n0000000104 00000 n \n0000000211 00000 n \n0000000414 00000 n \n0000000482 00000 n \n0000000778 00000 n \n0000000837 00000 n \ntrailer\n<<\n/ID \n[<a65e33d72b88e8fc8c6aeb78224a705b><a65e33d72b88e8fc8c6aeb78224a705b>]\n% ReportLab generated PDF document -- digest (http://www.reportlab.com)\n\n/Info 5 0 R\n/Root 4 0 R\n/Size 8\n>>\nstartxref\n1327\n%%EOF\n] PASSED
+tests/test_documents.py::test_every_supported_type_is_extracted_and_listed[policy.docx-PK\x03\x04\x14\x00\x00\x00\x00\x00*eR]\x07\xedZ\x14\xaf\x02\x00\x00\xaf\x02\x00\x00\x11\x00\x00\x00word/document.xml<?xml version="1.0"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>Refund policy</w:t></w:r></w:p><w:p><w:r><w:t>Customers may return unused products within 30 days of delivery for a full refund. Refunds are issued to the original payment method within 5 business days.</w:t></w:r></w:p><w:p><w:r><w:t>Shipping</w:t></w:r></w:p><w:p><w:r><w:t>Standard shipping takes 3 to 5 business days. Express shipping is available for an extra fee.</w:t></w:r></w:p><w:p><w:r><w:t>Warranty</w:t></w:r></w:p><w:p><w:r><w:t>All devices carry a two year limited warranty covering manufacturing defects.</w:t></w:r></w:p></w:body></w:document>PK\x01\x02\x14\x03\x14\x00\x00\x00\x00\x00*eR]\x07\xedZ\x14\xaf\x02\x00\x00\xaf\x02\x00\x00\x11\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\x01\x00\x00\x00\x00word/document.xmlPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x00?\x00\x00\x00\xde\x02\x00\x00\x00\x00] PASSED
+tests/test_documents.py::test_rejections_are_clear_and_save_nothing PASSED
+tests/test_documents.py::test_duplicate_upload_is_rejected PASSED
+tests/test_documents.py::test_size_limit PASSED
+tests/test_documents.py::test_search_finds_the_right_passage_and_delete_removes_it PASSED
+tests/test_documents.py::test_stored_file_name_never_uses_client_path PASSED
+tests/test_documents.py::test_chunks_cover_the_text_and_quotes_are_checked_leniently PASSED
+tests/test_documents.py::test_plurals_and_verb_forms_match PASSED
+tests/test_graph.py::test_approval_is_a_real_langgraph_interrupt PASSED
+tests/test_graph.py::test_pending_approval_survives_a_server_restart PASSED
+tests/test_graph.py::test_approval_with_the_wrong_key_does_not_write PASSED
+tests/test_graph.py::test_resume_without_a_checkpoint_fails_honestly PASSED
+tests/test_graph.py::test_ambiguous_task_asks_then_replans_after_the_answer PASSED
+tests/test_graph.py::test_mid_run_question_resumes_the_same_run_without_replanning PASSED
+tests/test_graph.py::test_agent_graph_endpoint_lists_nodes PASSED
+tests/test_graph.py::test_long_runs_do_not_hit_the_langgraph_recursion_limit PASSED
+tests/test_langchain_ollama.py::test_cloud_sends_bearer_key_json_mode_and_no_num_ctx PASSED
+tests/test_langchain_ollama.py::test_local_ollama_sends_no_auth_and_sets_num_ctx PASSED
+tests/test_langchain_ollama.py::test_cloud_without_key_fails_before_any_request PASSED
+tests/test_langchain_ollama.py::test_http_errors_are_classified[401-rejected the API key] PASSED
+tests/test_langchain_ollama.py::test_http_errors_are_classified[404-gemma4:cloud] PASSED
+tests/test_langchain_ollama.py::test_http_errors_are_classified[429-limit] PASSED
+tests/test_langchain_ollama.py::test_http_errors_are_classified[500-HTTP 500] PASSED
+tests/test_langchain_ollama.py::test_connection_failure_and_timeout_messages PASSED
+tests/test_langchain_ollama.py::test_openai_provider_uses_json_mode_and_classifies_errors PASSED
+tests/test_langchain_ollama.py::test_invalid_json_is_repaired_once_then_accepted PASSED
+tests/test_langchain_ollama.py::test_health_reports_ok_and_missing_model PASSED
+tests/test_langchain_ollama.py::test_invoice_task_end_to_end_through_chat_ollama PASSED
+tests/test_langchain_ollama.py::test_file_search_task_through_chat_ollama PASSED
+tests/test_loop_regression.py::test_repeated_write_is_not_re_approved_and_loop_is_stopped PASSED
+tests/test_loop_regression.py::test_runner_keeps_no_per_task_state PASSED
+tests/test_loop_regression.py::test_interrupted_tasks_are_failed_on_startup PASSED
+tests/test_loop_regression.py::test_second_cancel_force_cancels_a_stuck_task PASSED
+tests/test_loop_regression.py::test_prompt_only_lists_workflow_tools PASSED
+tests/test_loop_regression.py::test_agent_does_not_ask_user_for_data_it_already_has PASSED
+tests/test_pdf_and_tools.py::test_extracts_actual_pdf_content PASSED
+tests/test_pdf_and_tools.py::test_extraction_is_not_hardcoded PASSED
+tests/test_pdf_and_tools.py::test_latest_invoice_is_selected_by_date_not_filename_or_lookalike PASSED
+tests/test_pdf_and_tools.py::test_injected_instructions_in_pdf_are_flagged_not_obeyed PASSED
+tests/test_pdf_and_tools.py::test_missing_invoice_returns_not_found_without_fabrication PASSED
+tests/test_pdf_and_tools.py::test_save_then_read_back_and_verify PASSED
+tests/test_pdf_and_tools.py::test_incorrect_saved_amount_fails_verification PASSED
+tests/test_pdf_and_tools.py::test_duplicate_insert_rejected_by_tool_and_by_database PASSED
+tests/test_pdf_and_tools.py::test_path_traversal_blocked[../../backend/.env] PASSED
+tests/test_pdf_and_tools.py::test_path_traversal_blocked[/etc/passwd] PASSED
+tests/test_pdf_and_tools.py::test_path_traversal_blocked[C:\\Windows\\win.ini] PASSED
+tests/test_pdf_and_tools.py::test_path_traversal_blocked[invoices/../../README.md] PASSED
+tests/test_pdf_and_tools.py::test_tool_argument_validation PASSED
+tests/test_pdf_and_tools.py::test_registry_has_no_shell_or_arbitrary_execution PASSED
+tests/test_upload.py::test_uploaded_pdf_is_saved_and_the_agent_can_process_it PASSED
+tests/test_upload.py::test_upload_rejects_wrong_types PASSED
+tests/test_upload.py::test_upload_rejects_unreadable_pdf_and_cleans_up PASSED
+tests/test_upload.py::test_upload_size_limit PASSED
+tests/test_upload.py::test_upload_duplicate_is_rejected PASSED
+tests/test_upload.py::test_upload_filename_cannot_escape_the_invoices_folder PASSED
+tests/test_upload.py::test_parser_accepts_common_label_variants_and_currency_symbols PASSED
+============================= 107 passed in 17.38s =============================
+
+## Frontend: npm test
+ ✓ src/pages/pages.test.tsx (6 tests) 1159ms
+   ✓ chat sends a message, shows the reply, the tools used and a link to the started task 487ms
+ ✓ src/components/components.test.tsx (7 tests) 371ms
+ ✓ src/components/UploadCard.test.tsx (2 tests) 281ms
+ Test Files  3 passed (3)
+      Tests  15 passed (15)
+
+## Frontend: npm run build
+✓ 1653 modules transformed.
+✓ built in 6.20s

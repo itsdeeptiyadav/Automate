@@ -1,0 +1,15 @@
+@import "@fontsource-variable/schibsted-grotesk";
+@import "@fontsource/jetbrains-mono/400.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { min-height: 100%; }
+body { @apply bg-mist text-ink font-sans antialiased; }
+:focus-visible { outline: 2px solid #3347D8; outline-offset: 2px; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+.btn-primary { @apply btn bg-signal text-white hover:bg-[#2A3BB8]; }
+.btn-ok { @apply btn bg-ok text-white hover:bg-[#126148]; }
+.btn-quiet { @apply btn border border-rule bg-white text-ink hover:bg-mist; }
+.btn-danger { @apply btn border border-bad/40 bg-white text-bad hover:bg-bad/5; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
